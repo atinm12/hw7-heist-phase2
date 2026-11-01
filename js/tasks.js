@@ -58,7 +58,7 @@ Heist.Tasks = (function () {
           Heist.Game.toast(`${d.label || 'Door'} unlocked`);
           Heist.Game.sfx('unlock');
         } else {
-          state.hint = `Locked: needs ${d.requires.split(':')[1]} keycard`;
+          state.hint = state.hint || `Locked: needs ${d.requires.split(':')[1]} keycard`;
         }
       }
     }
@@ -68,7 +68,7 @@ Heist.Tasks = (function () {
       const pos = itemPos(c);
       if (c.hacked || !near(pos)) continue;
       if (c.requires && !check(state, c.requires)) {
-        state.hint = c.lockedHint || 'Computer is locked';
+        state.hint = state.hint || c.lockedHint || 'Computer is locked';
         continue;
       }
       if (Heist.Input.isDown('f')) {
@@ -81,7 +81,7 @@ Heist.Tasks = (function () {
         }
       } else {
         c.progress = 0;
-        state.hint = `Hold F: ${c.label || 'hack computer'}`;
+        state.hint = state.hint || `Hold F: ${c.label || 'hack computer'}`;
       }
     }
 
