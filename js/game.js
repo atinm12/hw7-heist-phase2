@@ -80,6 +80,10 @@ Heist.Game = (function () {
 
   function update(dt) {
     const I = Heist.Input;
+    if (state.showStart) {
+      if (I.wasPressed('Enter') || I.wasPressed(' ')) state.showStart = false;
+      return;
+    }
     if (I.wasPressed('r')) { loadLevel(levelIndex); return; }
     if (I.wasPressed('[') && levelIndex > 0) { loadLevel(levelIndex - 1); return; }
     if (I.wasPressed(']') && levelIndex < Heist.LEVELS.length - 1) { loadLevel(levelIndex + 1); return; }
@@ -120,6 +124,7 @@ Heist.Game = (function () {
   function start() {
     Heist.Render.setup(document.getElementById('game'));
     loadLevel(0);
+    state.showStart = true;   // tests skip start(), so they never see this screen
     requestAnimationFrame((t) => { last = t; requestAnimationFrame(frame); });
   }
 

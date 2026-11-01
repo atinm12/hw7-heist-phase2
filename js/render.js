@@ -1038,6 +1038,7 @@ Heist.Render = (function () {
     }
     drawExitArrow(state);
     drawHUD(state);
+    if (state.showStart) { drawStartScreen(); return; }
     drawTitleCard(state);
     if (state.status !== 'playing') { endFrames++; drawOverlay(state); } else endFrames = 0;
   }
@@ -1216,6 +1217,26 @@ Heist.Render = (function () {
     ctx.font = `bold 9px ${FONT}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillStyle = rgba(COL.exit, 0.9);
     ctx.fillText('EXIT', ax - Math.cos(ang) * 22, ay - Math.sin(ang) * 22);
+    ctx.textAlign = 'left';
+  }
+
+  function drawStartScreen() {
+    const cx = C.VIEW_W / 2;
+    ctx.fillStyle = 'rgba(3,4,8,0.88)';
+    ctx.fillRect(0, 0, C.VIEW_W, C.VIEW_H);
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = `bold 11px ${FONT}`; ctx.fillStyle = COL.dim;
+    ctx.fillText('GOLDCREST SAVINGS & TRUST', cx, 190);
+    ctx.font = `bold 64px ${FONT}`; ctx.fillStyle = '#ffffff';
+    ctx.fillText('HEIST', cx, 240);
+    ctx.fillStyle = rgba(COL.treasure, 0.7);
+    ctx.fillRect(cx - 40, 282, 80, 2);
+    ctx.font = `500 14px ${FONT}`; ctx.fillStyle = COL.text;
+    ctx.fillText('Finish the tasks, take the treasure, and get back to where you started.', cx, 320);
+    ctx.fillText('Cameras and guards raise the alert. It never goes back down.', cx, 344);
+    ctx.font = `600 14px ${FONT}`;
+    ctx.fillStyle = rgba('#ffffff', 0.6 + 0.35 * Math.sin(performance.now() / 300));
+    ctx.fillText('Press Enter to start', cx, 400);
     ctx.textAlign = 'left';
   }
 
