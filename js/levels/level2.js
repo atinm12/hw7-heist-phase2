@@ -16,6 +16,7 @@
 Heist.registerLevel({
   id: 'l2',
   name: 'Level 2 - The Executive Floor',
+  unlocks: ['stealth'],           // powerups earned for later levels
 
   map: [
     '########################################',

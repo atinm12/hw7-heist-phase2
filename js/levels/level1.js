@@ -11,6 +11,7 @@
 Heist.registerLevel({
   id: 'l1',
   name: 'Level 1 - Goldcrest Lobby',
+  unlocks: ['vents', 'xray'],     // powerups earned for later levels
 
   map: [
     '############  ##########  ############',

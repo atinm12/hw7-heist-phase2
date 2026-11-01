@@ -12,6 +12,7 @@ Heist.registerLevel({
   id: 'l1',
   name: 'Level 1 - The Lobby',
   alertMax: 100,                 // optional, default CONFIG.ALERT_MAX
+  unlocks: ['vents'],            // optional, powerups later levels start with
 
   // Main floor. All rows should be the same length.
   map: [

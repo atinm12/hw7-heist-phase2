@@ -9,6 +9,13 @@ Heist.Game = (function () {
   let levelIndex = 0;
   let last = 0;
 
+  // Powerups are cumulative: a level starts with everything earlier levels unlock.
+  function powerupsFor(i) {
+    const powerups = { vents: false, xray: false, stealth: false };
+    Heist.LEVELS.slice(0, i).forEach((l) => (l.unlocks || []).forEach((u) => { powerups[u] = true; }));
+    return powerups;
+  }
+
   function loadLevel(i) {
     levelIndex = i;
     const level = Heist.Level.parse(Heist.LEVELS[i]);
@@ -21,6 +28,7 @@ Heist.Game = (function () {
       temp: 0,
       tempMax: C.TEMP_MAX,
       flags: new Set(),
+      powerups: powerupsFor(i),
       status: 'playing',      // 'playing' | 'won' | 'lost'
       loseReason: '',
       time: 0,
