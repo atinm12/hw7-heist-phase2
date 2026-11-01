@@ -326,6 +326,20 @@ Heist.Security = (function () {
     node(l.x2, l.y2);
   }
 
+  // Faint dashed patrol route so players can plan around a guard.
+  function drawGuardPath(ctx, g) {
+    if (g.path.length < 2) return;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(120,160,255,0.22)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 8]);
+    ctx.beginPath();
+    g.path.forEach((pt, i) => (i ? ctx.lineTo(pt.x, pt.y) : ctx.moveTo(pt.x, pt.y)));
+    if (g.def.loop !== false) ctx.closePath();
+    ctx.stroke();
+    ctx.restore();
+  }
+
   function line(ctx, l) {
     ctx.beginPath(); ctx.moveTo(l.x1, l.y1); ctx.lineTo(l.x2, l.y2); ctx.stroke();
   }
@@ -334,6 +348,7 @@ Heist.Security = (function () {
     const sec = state.security;
     if (!sec) return;
     const L = state.level, t = state.time;
+    for (const g of sec.guards) if (g.active) drawGuardPath(ctx, g);
     // Cones first so bodies draw on top of them.
     for (const cam of sec.cameras) {
       if (cam.active) drawCone(ctx, L, cam.x, cam.y, cam.facing, cam.def.fov || 50, cam.def.range || 6, cam.seeing, t);
