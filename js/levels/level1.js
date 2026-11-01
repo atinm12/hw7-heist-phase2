@@ -66,13 +66,13 @@ Heist.registerLevel({
     // Records Room: sweeps the middle of the room; hug the west wall.
     { x: 10, y: 1, angle: 135, sweep: 80, fov: 45, range: 8, speed: 20 },
     // East corridor: swings across the Manager's Office door.
-    { x: 33, y: 13, angle: 270, sweep: 120, fov: 45, range: 5, speed: 25 },
+    { x: 33, y: 13, angle: 270, sweep: 120, fov: 40, range: 4, speed: 20 },
   ],
 
   guards: [
     // Night guard walking the lobby perimeter.
     { path: [[13, 9], [24, 9], [24, 16], [13, 16]], loop: true,
-      speed: 1.5, fov: 60, range: 4, pause: 0.4 },
+      speed: 1.3, fov: 55, range: 3.5, pause: 0.6 },
   ],
 
   lasers: [

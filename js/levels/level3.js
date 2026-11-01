@@ -127,8 +127,8 @@ Heist.registerLevel({
 
   guards: [
     // Two guards walk the ring in the same direction, half a lap apart.
-    { path: [[2, 9], [37, 9], [37, 19], [2, 19]], loop: true, speed: 1.8, fov: 70, range: 4.5, pause: 0.5 },
-    { path: [[37, 19], [2, 19], [2, 9], [37, 9]], loop: true, speed: 1.8, fov: 70, range: 4.5, pause: 0.5 },
+    { path: [[2, 9], [37, 9], [37, 19], [2, 19]], loop: true, speed: 1.5, fov: 60, range: 4, pause: 0.5 },
+    { path: [[37, 19], [2, 19], [2, 9], [37, 9]], loop: true, speed: 1.5, fov: 60, range: 4, pause: 0.5 },
     // Vault guard.
     { path: [[27, 12], [34, 12], [34, 16], [27, 16]], loop: true, speed: 1.4, fov: 55, range: 3.5, pause: 0.3 },
   ],
