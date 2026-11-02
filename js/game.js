@@ -1,7 +1,7 @@
 // Game state, main loop, win/lose, level switching.
 //
 // Per-frame order:
-//   Player.update -> Vents.update -> Tasks.update -> Security.update
+//   Player.update -> Vents.update -> Powerups.update -> Tasks.update -> Security.update
 //   Render.draw (which calls Security.draw / Vents.draw at the right layers)
 Heist.Game = (function () {
   const C = Heist.CONFIG;
@@ -41,6 +41,7 @@ Heist.Game = (function () {
     };
     Heist.state = state;
     Heist.Vents.init(state);
+    Heist.Powerups.init(state);
     Heist.Security.init(state);
     Heist.Render.init(state);
     updateCamera(true);
@@ -110,6 +111,7 @@ Heist.Game = (function () {
       state.time += dt;
       Heist.Player.update(state, dt);
       Heist.Vents.update(state, dt);
+      Heist.Powerups.update(state, dt);
       Heist.Tasks.update(state, dt);
       Heist.Security.update(state, dt);
     }

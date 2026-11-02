@@ -993,7 +993,7 @@ Heist.Render = (function () {
     const hidden = [];
     let sig = '';
     for (let r = 0; r < (L.regionCount || 0); r++) {
-      hidden[r] = Heist.Level.isRegionHidden(L, r, pr);
+      hidden[r] = !Heist.Powerups.xrayOn(state) && Heist.Level.isRegionHidden(L, r, pr);
       sig += hidden[r] ? '1' : '0';
     }
     updateDust(state);

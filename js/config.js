@@ -17,6 +17,11 @@ Heist.CONFIG = {
   TEMP_MAX: 100,          // vent temperature sensor trips at this value
   TEMP_RISE: 12,          // per second while in vents
   TEMP_FALL: 20,          // per second while out of vents
+
+  XRAY_TIME: 3,           // seconds locked rooms stay visible
+  XRAY_COOLDOWN: 12,      // seconds between uses, counted from activation
+  STEALTH_TIME: 2.5,      // seconds unseen by all security
+  STEALTH_USES: 2,        // uses per level
 };
 
 // Tile characters used in level `map` strings (main floor).
