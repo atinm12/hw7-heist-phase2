@@ -1,7 +1,7 @@
 Heist
 =====
 
-Original design and Phase 1 foundation by [author]. Phase 2 by Atin Mathur.
+Original design and Phase 1 foundation by claytonyu. Phase 2 by Atin Mathur.
 
 This is a top-down stealth game in the browser. You finish a chain of tasks, grab the treasure, and walk back to where you started without maxing out the alert counter. It has three levels, and it runs on plain JavaScript and HTML5 Canvas.
 
@@ -40,7 +40,7 @@ These are the four criteria from SPEC.md in the author's order.
 
 **2. The levels have a main treasure and a set of tasks to complete before getting that treasure.** Met. All three levels have a treasure and a task chain, and the Phase 1 solver test shows that the treasure can't be reached until every task is done.
 
-**3. The security system works accurately and difficulty is tuned well.** Partially met. Cameras, guards and lasers work and are tested, and I tuned the levels using a bot that plays with security on (alert 21, 48 and 63 out of 100 on levels 1, 2 and 3), but a bot is not the same as lots of people play testing it. This one was also unclear because the sub-bullet stops mid-sentence at "The player should not trip lasers or", so I couldn't check whatever the rest of it asks for.
+**3. The security system works accurately and difficulty is tuned well.** Partially met. Cameras, guards and lasers work and are tested, and I tuned the levels using a bot that plays with security on (alert 21, 48 and 63 out of 100 on levels 1, 2 and 3), but a bot is not the same as lots of people play testing it. I also played it myself and it was good. This one was also unclear because the sub-bullet stops mid-sentence at "The player should not trip lasers or", so I couldn't check whatever the rest of it asks for.
 
 **4. The game is sufficiently polished. Art, music, sound effects, and gamefeel don't feel unfinished.** Partially met. I added a start screen, guard route lines, and fixes for the hint overlap and cut off objective text, but decor is still not solid and the player can walk over desks. "Sufficiently polished" is also a judgment call and not something a test can check.
 

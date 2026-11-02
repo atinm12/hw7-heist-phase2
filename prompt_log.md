@@ -13,7 +13,7 @@ Phase 2 (Atin Mathur)
 
 Model and tool: Claude Code in the Claude app, Claude Opus 5.5
 
-My prompts are below, word for word. I ran the session from these. The first two prompts both got cut off at the end when I pasted them, so they stop mid-sentence here too.
+My prompts are below, word for word, except for one instruction line in Prompts 1 and 2 and one word in Prompt 5, which I took out on purpose. I ran the session from these. The first two prompts both got cut off at the end when I pasted them, so they stop mid-sentence here too.
 
 **Prompt 1**
 
@@ -107,6 +107,27 @@ STEP 5 — Documentation (separate files; don't merge them)
 
 ```text
 dont add '##' to any parts of the code or anything that is not supposed to be 100% ai generated
+```
+
+**Prompt 4**
+
+```text
+How do I play the game myself? Give me a link.
+```
+
+**Prompt 5**
+
+```text
+author: claytonyu
+
+i played it myself it was good. 
+
+what do you mean my paper cut off at heading 3. 
+
+tell me which parts i need to write myself and what they need to cover.
+
+
+dont include [word removed] at all in the assingment anywhere, if its in the prompt log then remove that part of the promtp
 ```
 
 AI did something I didn't want
