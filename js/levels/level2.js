@@ -84,7 +84,7 @@ Heist.registerLevel({
     { text: 'Grab the blue keycard in the Mail Room', done: 'key:blue' },
     { text: 'Shut down the security grid in the Security Room', done: 'flag:grid_off' },
     { text: 'Find the green keycard in the Archives', done: 'key:green' },
-    { text: 'Crawl from the Executive Office vent into Vault Control and open the vault', done: 'flag:vault_open' },
+    { text: 'Vent into Vault Control and open the vault', done: 'flag:vault_open' },
     { text: 'Steal the Sapphire of Goldcrest from the vault', done: 'treasure' },
     { text: 'Escape through the loading bay', done: 'escape' },
   ],

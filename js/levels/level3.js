@@ -81,7 +81,7 @@ Heist.registerLevel({
     { text: 'Run the camera override in the Security Room', done: 'flag:cams_off' },
     { text: 'Shut down the laser grid in the Server Room', done: 'flag:lasers_off' },
     { text: "Take the yellow keycard from the Director's Office", done: 'key:yellow' },
-    { text: 'Vent from the Records Annex into the Time-Lock Room and release the time lock', done: 'flag:timelock_off' },
+    { text: 'Vent into the Time-Lock Room and release the lock', done: 'flag:timelock_off' },
     { text: 'Hack the vault terminal in the antechamber', done: 'flag:vault_inner' },
     { text: 'Steal the Goldcrest Crown', done: 'treasure' },
     { text: 'Escape down the stairwell', done: 'escape' },
