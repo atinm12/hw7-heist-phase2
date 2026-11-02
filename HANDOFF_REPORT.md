@@ -1,35 +1,19 @@
-NOTES ONLY. Rewrite in my own words, then delete these bullets.
-
 1. What did I read first, and did it help?
 
-- SPEC.md first, then HANDOFF.md, PROGRESS.md, js/levels/README.md
-- No README.md or prompt_log.md in the folder
-- HANDOFF.md: file table, frame order, next steps list
-- HANDOFF.md claim "scripted playthrough wins": teleport + stealth on in levels.test.js
+First, I read HANDOFF.md, and it definitely helped because it gave direction on what the author was trying to build, as well as current progress. This helped because it gave me direction into what I need to do next and plan my contributions accordingly.
 
 2. Was the spec clear? Were the acceptance criteria checkable or vague?
 
-- Criterion 3 sub-bullet cut off: "The player should not trip lasers or"
-- Criterion 1 wording: "go above to the main floor"
-- Criteria 3 and 4 not measurable: "tuned well", "sufficiently polished"
-- Powerups in feature set, not in acceptance criteria
+Second, the spec was clear. I could tell what the author wanted because it was clearly a game and had clear logic. It was not very vague, but there were many instances where I could make my own decisions, so I had to use my own judgment for those. The one exception was criterion 3, where a sub-bullet is cut off mid-sentence.
 
 3. What made the code easy to work with?
 
-- One global `Heist`, no build step
-- Reserved hooks: `state.powerups`, `player.stealth`, `isDetectable`
-- 68 passing tests at handoff, `T.load` / `T.hold` / `T.teleport` helpers
-- Level tuning = data edits in level files, no logic changes
+Something that made the code easy to work with was that there was clear direction in what the game was supposed to be. Specifically, every game objective was very explicitly stated, and the rules of the game were very explicitly stated.
 
 4. What cost me time?
 
-- Playthrough tests used teleport + stealth, so no proof of a win with security on
-- Had to build a playtest bot just to measure difficulty; rates never tuned in Phase 1
-- Level 1 scored above level 2 on the bot, level 3 at 137/100
-- No README, prompt log, or author name in the folder
+What cost me time was definitely features that were described, but were different in the actual game. This cost me time because I was confused in what HANDOFF.md was talking about and directly referring to.
 
 5. One thing I’d ask the author to do differently
 
-- Candidate: finish criterion 3's sub-bullet, cut off at "should not trip lasers or"
-- Candidate: playtest with security on before writing "scripted playthrough wins"
-- Candidate: include a README and prompt log in the handoff
+One thing I would ask the author to do differently next time is to describe how certain features should be implemented, such as any specific types of movement or specific animations that the author wanted.
