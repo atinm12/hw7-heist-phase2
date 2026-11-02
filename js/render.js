@@ -1094,6 +1094,7 @@ Heist.Render = (function () {
     }
     drawObjectives(state);
     drawInventory(state);
+    drawPowerups(state, 12 + ph + 8);
     // Hint / hack progress (bottom center).
     const cx = C.VIEW_W / 2;
     if (state.interact) {
@@ -1196,6 +1197,31 @@ Heist.Render = (function () {
     }
   }
 
+  function drawPowerups(state, y) {
+    const pu = state.powerups, fx = state.powerFx;
+    if (!pu || !fx) return;
+    const rows = [];
+    if (pu.xray) {
+      rows.push(fx.xrayT > 0 ? ['X-RAY', `ON ${fx.xrayT.toFixed(1)}s`, COL.treasure]
+        : fx.xrayCd > 0 ? ['X-RAY', `WAIT ${Math.ceil(fx.xrayCd)}s`, COL.dim] : ['X-RAY', 'READY  (X)', COL.exit]);
+    }
+    if (pu.stealth) {
+      rows.push(fx.stealthT > 0 ? ['STEALTH', `ON ${fx.stealthT.toFixed(1)}s`, COL.treasure]
+        : fx.stealthUses > 0 ? ['STEALTH', `${fx.stealthUses} LEFT  (C)`, COL.exit] : ['STEALTH', 'USED UP', COL.dim]);
+    }
+    if (!rows.length) return;
+    panel(12, y, 250, 12 + rows.length * 18);
+    ctx.textBaseline = 'alphabetic';
+    rows.forEach(([name, value, color], i) => {
+      const ry = y + 20 + i * 18;
+      ctx.font = `bold 10px ${FONT}`; ctx.textAlign = 'left'; ctx.fillStyle = COL.dim;
+      ctx.fillText(name, 24, ry);
+      ctx.font = `bold 11px ${MONO}`; ctx.textAlign = 'right'; ctx.fillStyle = color;
+      ctx.fillText(value, 250, ry);
+    });
+    ctx.textAlign = 'left';
+  }
+
   function drawExitArrow(state) {
     const p = state.player, st = state.level.start;
     if (!p.hasTreasure || state.status !== 'playing' || !st) return;
@@ -1280,6 +1306,12 @@ Heist.Render = (function () {
     ctx.fillText(won ? 'MISSION SUCCESS' : 'MISSION FAILED', cx, cy - 72);
     ctx.font = `bold 40px ${FONT}`; ctx.fillStyle = accent;
     ctx.fillText(won ? 'HEIST COMPLETE' : 'BUSTED', cx, cy - 40);
+    const unlocks = (won && state.level.def.unlocks) || [];
+    if (unlocks.length) {
+      const names = { vents: 'Vent Crawling', xray: 'X-Ray', stealth: 'Stealth Mode' };
+      ctx.font = `600 13px ${FONT}`; ctx.fillStyle = COL.treasure;
+      ctx.fillText(`Unlocked: ${unlocks.map((u) => names[u] || u).join(' + ')}`, cx, cy - 8);
+    }
     if (!won && state.loseReason) {
       ctx.font = `500 13px ${FONT}`; ctx.fillStyle = '#ffb3b3';
       ctx.fillText(state.loseReason, cx, cy - 8);
