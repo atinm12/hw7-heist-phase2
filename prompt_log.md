@@ -130,6 +130,25 @@ tell me which parts i need to write myself and what they need to cover.
 dont include [word removed] at all in the assingment anywhere, if its in the prompt log then remove that part of the promtp
 ```
 
+**Prompt 6**
+
+```text
+Yes, rewrite history
+```
+
+**Prompt 7**
+
+```text
+The five headings for HANDOFF_REPORT.md:
+ 
+
+1. What did I read first, and did it help?
+2. Was the spec clear? Were the acceptance criteria checkable or vague?
+3. What made the code easy to work with?
+4. What cost me time?
+5. One thing I’d ask the author to do differently
+```
+
 AI did something I didn't want
 ------------------------------
 
